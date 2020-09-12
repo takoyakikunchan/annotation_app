@@ -1,16 +1,26 @@
 <%= render "shared/header" %>
-<div>
- <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @song.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-<%= @song.name%>
-<%@song.artists.each do |a| %>
-<%=a.art_name%>
-<%=a.producer%>
+
+
+<div style="background-image: url(<%= url_for(image_tag @song.image) %>);">
+
+ <div>
+    <%= @song.name%>
+ </div>
+ <div>
+   <%= image_tag @song.image, class: "item-img" %>
+ </div>
+ <%@song.artists.each do |a| %>
+ <%=a.art_name%>
+ <%=a.producer%>
  <%=a.featuring%>
  <%end%>
+</div> 
 <%= @song.text%>
 <%unless @song.translate == 0%>
 <%= @song.translate%>
 <%end%>
 <%= @song.genre.name %>
+<div>
+ <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @song.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
  <%= render "shared/footer" %>
