@@ -1,0 +1,98 @@
+<div class="songs-main-contents">
+  <header class="songs-main-header">
+    <%= link_to image_tag("ririkusu-logo.png", class: "ririkusu-icon"), "/" %>
+  </header>
+ <div class="songs-main">
+    <h2 class="songs-title">歌詞の情報を入力</h2>
+      
+   <%= form_with model: @song,url: songs_path,local: true do |f| %>
+   <%= render 'shared/error_messages', model: f.object %>
+   
+     <%# 商品名と商品説明 %>
+      <div class="new-items">
+       <div class="weight-bold-text">
+         曲名
+         <span class="indispensable">(必須)</span>
+       </div>
+        <%= f.text_area :name, class:"songs-text", id:"item-name", placeholder:"曲名 例）リリスクちゃん", maxlength:"40" %>
+       <div class="weight-bold-text">
+         歌手名
+         <span class="indispensable">(必須)</span>
+       </div>
+        <%= f.text_area :art_name, class:"songs-text", id:"item-name", placeholder:"歌手名 例）perfurmer", maxlength:"40" %>
+       <div class="weight-bold-text">
+         プロデューサー
+       </div>
+       <%= f.text_area :art_name, class:"songs-text", id:"item-name", placeholder:"例）中田ヤシタカ", maxlength:"40" %>
+       <div class="weight-bold-text">
+         コラボアーティスト
+       </div>
+        <%= f.text_area :art_name, class:"songs-text", id:"item-name", placeholder:"例） 菅田正樹", maxlength:"40" %>
+
+       <div class="songs-explain">
+         <div class="weight-bold-text">
+           歌詞
+           <span class="indispensable">(必須)</span>
+         </div>
+         <%= f.text_area :text, class:"songs-text", id:"item-info" ,rows:"7" ,maxlength:"2000" %>
+       </div>
+       <div class="songs-explain">
+         <div class="weight-bold-text">
+           和訳
+         </div>
+         <%= f.text_area :translate, class:"songs-text", id:"item-info" ,rows:"7" ,maxlength:"2000" %>
+        </div>
+      </div>
+      <%# /商品名と商品説明 %>
+
+      <%# 投稿画像 %>
+      <div class="img-upload">
+        <div class="weight-bold-text">
+         曲のジャケット写真
+         <span class="indispensable">(必須)</span>
+        </div>
+        <div class="click-upload">
+         <p>
+           クリックしてファイルをアップロード
+         </p>
+          <%= f.file_field :image, id:"song-image" %>
+          <div id="image-list"></div>
+        </div>
+      </div>
+
+     <%# /投稿画像 %>
+      <div class="weight-bold-text">
+        youtubeのurl
+      </div>
+      <%= f.text_area :youtube_url, class:"songs-text", id:"item-name", placeholder:"例）https://www.youtube.com/watch?v=DOEk-0MeQbI", maxlength:"100" %>
+    
+     <%# ジャンル %>
+     <div class="songs-detail">
+       <div class="weight-bold-text">
+          ジャンル
+          <span class="indispensable">必須</span>
+       </div>
+        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"genre-select"}) %>
+     </div>
+     <%# /ジャンル%>
+
+    
+
+     <%# 注意書き %>
+     <div class="caution">
+       <p class="sentence">
+        <a href="#">初めて投稿する人は、投稿ガイド</a>
+        で書き方をチェックしてください。
+       </p>
+     </div>
+     <%# /注意書き %>
+     <%# 下部ボタン %>
+     <div class="submit-btn-contents">
+       <%= f.submit "投稿する" ,class:"submit-btn" %>
+       <%=link_to 'もどる', root_path, class:"back-btn" %>
+     </div>
+      <%# /下部ボタン %>
+  </div>
+  <% end %>
+</div>
+<%= render "shared/second-footer"%>

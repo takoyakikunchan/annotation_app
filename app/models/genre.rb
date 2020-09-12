@@ -15,6 +15,4 @@ class Genre < ActiveHash::Base
     { id: 13, name: '洋楽ロック' },
     { id: 14, name: 'その他' }
   ]
-      
 end
-
