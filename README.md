@@ -134,6 +134,7 @@ python demo.py
 - has_many :artists through song_artist_relations
 - has_many :song_artist_relations
 - has_one_attached :image
+- belongs_to_active_hash :genre
 
 ## annotates テーブル
 |     Column       |  Type      |            Options             |

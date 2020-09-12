@@ -59,3 +59,4 @@ gem "omniauth-rails_csrf_protection"
 gem "pry-rails"
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
+gem 'active_hash'
