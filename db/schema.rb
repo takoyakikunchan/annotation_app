@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 2020_09_12_065438) do
 
   create_table "artists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "art_name", null: false
+    t.string "producer", null: false
+    t.string "featuring", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

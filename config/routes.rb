@@ -4,5 +4,5 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root "songs#index"
-  resources :songs, only: [:index,:new,:create]
+  resources :songs, only: [:index,:new,:create,:show]
 end
