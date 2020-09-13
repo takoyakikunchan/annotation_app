@@ -1,0 +1,71 @@
+.bg-mask{
+  background-color: rgba(0, 0, 0, 0.7);
+  height:280px;
+}
+.background{
+  background-repeat: no-repeat; 
+  background-size: cover;
+}
+.song_img {
+  width: 33vh;
+  height: 33vh;
+  object-fit: cover;
+  margin-top: 40px;
+  margin-left: 20px;
+}
+.song_contents{
+  display: flex;
+}
+
+.song_names{
+  margin-top:60px;
+  margin-left: 30px;
+}
+.song_text{
+  padding:40px 120px;;
+}
+.song_translate{
+  padding:10px 120px 30px 120px;
+}
+.song_translate p{
+  margin-left:400px;
+  font-weight: bolder;
+  color:purple;
+}
+.youtube{
+  margin-left: 270px;
+}
+.art_sorrounded_text{
+  margin-bottom:10px;
+  font-size:15px;
+  font-weight: bolder;
+  margin-right:15px;
+  opacity:0.7;
+  color:lightgray;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.9);
+}
+.sorrounding_color{
+  color:skyblue
+}
+.song_name_text{
+  font-size:28px;
+  color:plum;
+  margin-bottom: 1px;
+  font-weight: bolder;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+}
+.art_name_text{
+  font-size:20px;
+  color:white;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+  margin-bottom: 4px;
+}
+.flex{
+display: flex;
+}
+.sorround_ppl{
+  color:purple;
+  opacity:0.8;
+  font-weight: bolder;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+}

@@ -66,6 +66,11 @@
 .follow-icon{
   display: flex;
 }
+.follow-text{
+  margin-right:12px;
+  color:rgba(171, 97, 241, 0.558);
+  text-shadow: 0 0 2px rgba(143, 128, 163, 0.9);
+}
 .genre-list {
   text-decoration: none;
   margin-right: 3vw;
