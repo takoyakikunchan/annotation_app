@@ -1,7 +1,8 @@
 <%= render "shared/header" %>
-<div class="hashtag_names">キーワード<%=@keyword%> の曲一覧</div>
+
 
 <div class="contents-row">
+<div class="hashtag_names">キーワード 「 <span class="keyword_result"><%=@keyword%> </span> 」の曲一覧</div>
 <%unless @songs == nil %>
   <div class='song-contents'>
   <ul class='song-lists'>
@@ -28,9 +29,10 @@
  </div>
     
  <%if @songs.length == 0 %>
-   <div class="no_hits"><p>検索条件に当たる曲はありませんでした</p>
+   <div class="no_hits">
+     <p>検索条件に当たる曲はありませんでした</p>
      <p>登録しますか？</p>
-     <%= link_to '曲を追加する',new_song_path, class: "addsong-list" %>
+    <div class="addsonglink"> <%= link_to '曲を追加する',new_song_path, class: "addsong-link" %></div>
    </div>
  <%end%>
 <%end%>

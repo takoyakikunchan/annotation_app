@@ -16,7 +16,7 @@
 }
 .ririkusu-icon {
   width: 10vw;
-  margin-right: 10vw;
+  margin-right: 10px;
   width:210px;
 }
 
@@ -162,10 +162,8 @@
   margin-right:12px;
 }
 .insta-icon :hover{
-  /*ホバー時*/
     opacity:0.9;
-  }
-
+}
 
 .fa-twitter-square{
   font-size:1.6em;

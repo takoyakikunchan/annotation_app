@@ -1,0 +1,30 @@
+
+.keyword_result{
+  color:palevioletred;
+  text-shadow: 0 0 3px rgba(245, 217, 240, 0.7);
+  font-weight:bold;
+}
+
+
+.addsong-link{
+  text-decoration: none;
+  color: #333333;
+  background-color:rgba(185, 235, 248, 0.2);
+  padding:10px;
+  border-radius: 5px;
+  box-shadow: 3px 4px 2px lightblue;
+}
+.addsonglink :hover{
+  background-color: rgba(146, 168, 201, 0.2);
+}
+.addsonglink :active{
+  box-shadow: none;
+}
+.contents-row{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
