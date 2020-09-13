@@ -22,10 +22,12 @@
   margin-left: 30px;
 }
 .song_text{
-  padding:40px 120px;;
+  padding:40px 120px;
+  background:rgba(237, 237, 245, 0.1);
 }
 .song_translate{
   padding:10px 120px 30px 120px;
+  background:rgba(237, 237, 245, 0.1);
 }
 .song_translate p{
   margin-left:400px;
@@ -34,6 +36,7 @@
 }
 .youtube{
   margin-left: 270px;
+  margin-top:60px;
 }
 .art_sorrounded_text{
   margin-bottom:10px;

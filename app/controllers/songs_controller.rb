@@ -25,7 +25,13 @@ def show
   @song = Song.find(params[:id])
 end
 
-
+def search
+  @songs = Song.search(params[:keyword])
+  @keyword = params[:keyword]
+  if @songs== nil
+    redirect_to root_path
+  end
+end
   def move_to_login
     redirect_to new_user_session_path unless user_signed_in?
   end

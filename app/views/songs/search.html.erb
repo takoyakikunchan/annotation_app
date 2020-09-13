@@ -1,0 +1,39 @@
+<%= render "shared/header" %>
+<div class="hashtag_names">キーワード<%=@keyword%> の曲一覧</div>
+
+<div class="contents-row">
+<%unless @songs == nil %>
+  <div class='song-contents'>
+  <ul class='song-lists'>
+ <% @songs.each do |song| %>
+ <li class='song-list' >
+ <%= link_to song_path(song.id) ,class:"show_link" do %>
+  <div class='song-info'>
+   <div class='song-image'>
+     <%= image_tag song.image, class: "item-img" %>
+   </div>
+   <div class='song-name'>
+     <%= song.name %>
+   </div>
+   <div class="song-art-name"><%song.artists.each do |a| %>
+      <%=a.art_name%>
+   <%end%></div>
+
+  </div>
+ <% end %>
+ </li>
+ <% end %>
+
+ </ul>
+ </div>
+    
+ <%if @songs.length == 0 %>
+   <div class="no_hits"><p>検索条件に当たる曲はありませんでした</p>
+     <p>登録しますか？</p>
+     <%= link_to '曲を追加する',new_song_path, class: "addsong-list" %>
+   </div>
+ <%end%>
+<%end%>
+</div>
+
+</div>
