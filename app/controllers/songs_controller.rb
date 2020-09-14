@@ -27,6 +27,29 @@ def show
   @comments = @song.comments.includes(:user)
 end
 
+def edit
+  @song = Song.find(params[:id])
+end
+
+def update
+  @song = SongArtist.new(song_update_params)
+  if @item.update
+    @song = Song.find(params[:id])
+    @comment = Comment.new
+    @comments = @song.comments.includes(:user)
+    render :show
+  else
+    render :edit
+  end
+end
+
+def destory
+  if @song.destroy
+    redirect_to songs_path
+  else
+    render :show
+  end
+end
 def search
   @songs = Song.search(params[:keyword])
   @keyword = params[:keyword]
@@ -39,8 +62,13 @@ end
   end
 
   private
-
+# Create
   def song_params
     params.require(:song_artist).permit(:name, :text, :image, :translate, :youtube_url, :genre_id, :art_name,:producer,:featuring).merge(user_id: current_user.id)
+  end
+
+  # Update
+  def song_update_params
+    params.require(:song).permit(:name, :text, :image, :translate, :youtube_url, :genre_id, :art_name,:producer,:featuring).merge(user_id: current_user.id, song_id: params[:id])
   end
 end

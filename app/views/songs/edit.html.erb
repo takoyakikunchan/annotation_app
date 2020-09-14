@@ -3,7 +3,7 @@
     <%= link_to image_tag("ririkusu-logo.png", class: "ririkusu-icon-new"), "/" %>
   </header>
  <div class="songs-main">
-    <h2 class="songs-title">歌詞の情報を入力</h2>
+    <h2 class="songs-title">歌詞の情報を編集</h2>
       
    <%= form_with model: @song,url: songs_path,local: true do |f| %>
    <%= render 'shared/error_messages', model: f.object %>
@@ -53,10 +53,11 @@
          <span class="indispensable">(必須)</span>
         </div>
         <div class="click-upload">
-         <p>
-           クリックしてファイルをアップロード
-         </p>
-          <%= f.file_field :image, id:"song-image" %>
+         <div class="flex"> <%= image_tag @song.image,class:"preview-image" %>
+          <%= f.file_field :image, id:"item-image" ,class:"fileupload" %></div>
+          <p>
+           写真を変更する場合はファイルをアップロード
+          </p>
           <div id="image-list"></div>
         </div>
       </div>
@@ -86,7 +87,7 @@
      <%# /注意書き %>
      <%# 下部ボタン %>
      <div class="submit-btn-contents">
-       <%= f.submit "投稿する" ,class:"submit-btn", id:"submit" %>
+       <%= f.submit "更新する" ,class:"submit-btn", id:"submit" %>
        <%=link_to 'もどる', root_path, class:"back-btn" %>
      </div>
       <%# /下部ボタン %>

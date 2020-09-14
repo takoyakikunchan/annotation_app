@@ -1,6 +1,10 @@
 <%= render "shared/header" %>
-
-<%= link_to '歌詞を編集する',"#", method: :get, class: "item-red-btn" %>
+<% if current_user %>
+ <div class="hover"><%= link_to '歌詞を編集する',edit_song_path(@song.id), method: :get, class: "lyric-edit-btn" %></div>
+ <% if current_user.id == 1%>
+ <%= link_to '削除', song_path(@song.id), method: :delete %>
+ <%end%> 
+<%end%> 
 <div class="background">
  <div class="bg-mask">
   <style>
@@ -45,9 +49,9 @@
   <% if current_user %>
       <%= form_with(model: [@song, @comment], local: true) do |form| %>
         <%= form.text_area :text, placeholder: "コメントする", rows: "2",class: "comment-text" %>
-        <button type="submit" class="comment-btn">
+       <div class="hover"> <button type="submit" class="comment-btn">
         <span>コメントする<span>
-     　 </button>
+     　 </button></div>
       　<p class="comment-warn">
         相手のことを考え丁寧なコメントを心がけましょう。
         <br>
@@ -72,13 +76,15 @@
       <% end %>
   </div>
 </div>
+
 <div><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
   
-      <%= link_to '曲を通報する', "#", method: :get, class:'item-destroy' %>
-      <%= link_to 'コメントを通報する', "#", method: :get, class:'item-destroy' %>
+     <div class="flex"><div class="hover"> <%= link_to '曲を通報する', "#", method: :get, class:'report-song' %></div>
+     <div class="hover"> <%= link_to 'コメントを通報する', "#", method: :get, class:'report-comment' %></div></div>
+
     <%= link_to "#" do %>
-    <div class='annotation-btn'>
+   <div class="hover"> <div class='annotation-btn'>
     <a href="#" class='annotation-btn-text'><p>注釈を追加する</p><i class="fas fa-marker fa-fw addannotation"></i></a>
-   </div>
+   </div></div>
 <%end%>
  <%= render "shared/footer" %>
