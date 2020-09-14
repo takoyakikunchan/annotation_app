@@ -91,6 +91,7 @@ display: flex;
   padding: 20px 10px;
 }
 
+
 .annotation-btn-text {
   color: #fff;
   display: block;
@@ -98,4 +99,68 @@ display: flex;
 }
 .addannotation{
   font-size: 1.5em 
+}
+/*コメント*/
+
+.comments {
+  padding: 5px;
+  margin-top: 15px;
+}
+.comments a {
+  color: #57C3E9;
+  text-decoration:none;
+}
+.comment-box {
+  width: 40vw;
+  background-color: #fff;
+  text-align: center;
+  margin:auto;
+  padding-top:50px;
+}
+
+.comment-text {
+  width: 100%;
+  height: 130px;
+  padding: 10px;
+  border: solid 2px #dedede;
+  resize: none;
+}
+
+.comment-warn {
+  padding: 10px;
+  font-size: 14px;
+  margin: 10px 0px;
+  text-align: center;
+}
+
+.comment-btn {
+  line-height: 48px;
+  background-color: plum;
+  border: 1px solid plum;
+  color: #fff;
+  width: 50%;
+  min-width: 150px;
+  font-size: 18px;
+  border-radius: 100px;
+  margin-bottom: 2vh;
+  cursor: pointer;
+  margin-top:30px;
+  text-align: center;
+}
+.hover :hover{
+  opacity:0.9;
+}
+.lyric-edit-btn,.report-song,.report-comment{
+  text-decoration: none;
+  background-color: plum;
+  color: #fff;
+  padding:12px;
+  border-radius: 10px;
+  line-height: 40px;
+  min-width: 100px;
+  font-size: 15px;
+  margin-left:3px;
+}
+.flex{
+  display:flex;
 }
