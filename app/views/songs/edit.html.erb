@@ -5,7 +5,7 @@
  <div class="songs-main">
     <h2 class="songs-title">歌詞の情報を編集</h2>
       
-   <%= form_with model: @song,url: songs_path,local: true do |f| %>
+   <%= form_with model: @song,url:song_path,local: true do |f| %>
    <%= render 'shared/error_messages', model: f.object %>
    
      <%# 商品名と商品説明 %>
@@ -14,21 +14,22 @@
          曲名
          <span class="indispensable">(必須)</span>
        </div>
-        <%= f.text_area :name, class:"songs-text", id:"item-name", placeholder:"曲名 例）リリスクちゃん", maxlength:"40" %>
+        <%= f.text_area :name, class:"songs-text", id:"item-name" ,placeholder:"曲名 例）リリスクちゃん", maxlength:"40" %>
+       <% @artist.each do |a|%>
        <div class="weight-bold-text">
          歌手名
          <span class="indispensable">(必須)</span>
        </div>
-        <%= f.text_area :art_name, class:"songs-text", id:"item-name", placeholder:"歌手名 例）perfurmer", maxlength:"40" %>
+        <%= f.text_area :art_name, class:"songs-text", id:"item-name", value:a.art_name ,placeholder:"歌手名 例）perfurmer", maxlength:"40" %>
        <div class="weight-bold-text">
          プロデューサー
        </div>
-       <%= f.text_area :producer, class:"songs-text", id:"item-name", placeholder:"例）中田ヤシタカ", maxlength:"40" %>
+       <%= f.text_area :producer, class:"songs-text", id:"item-name", value:a.producer ,placeholder:"例）中田ヤシタカ", maxlength:"40" %>
        <div class="weight-bold-text">
          コラボアーティスト
        </div>
-        <%= f.text_area :featuring, class:"songs-text", id:"item-name", placeholder:"例） 菅田正樹", maxlength:"40" %>
-
+        <%= f.text_area :featuring, class:"songs-text", id:"item-name", value:a.featuring ,placeholder:"例） 菅田正樹", maxlength:"40" %>
+        <%end%>
 
        <div class="songs-explain">
          <div class="weight-bold-text">

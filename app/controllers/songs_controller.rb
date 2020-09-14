@@ -29,11 +29,13 @@ end
 
 def edit
   @song = Song.find(params[:id])
+  @artist =@song.artists
 end
 
 def update
+  binding.pry
   @song = SongArtist.new(song_update_params)
-  if @item.update
+  if @song.update
     @song = Song.find(params[:id])
     @comment = Comment.new
     @comments = @song.comments.includes(:user)
@@ -69,6 +71,6 @@ end
 
   # Update
   def song_update_params
-    params.require(:song).permit(:name, :text, :image, :translate, :youtube_url, :genre_id, :art_name,:producer,:featuring).merge(user_id: current_user.id, song_id: params[:id])
+    params.require(:song).permit(:name, :text, :image, :translate, :youtube_url, :genre_id, :art_name,:producer,:featuring).merge(user_id: current_user.id)
   end
 end
