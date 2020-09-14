@@ -1,6 +1,6 @@
 <header class='top-page-header'>
   <div class='search-bar-contents'>
-    <%= link_to image_tag("ririkusu-logo.png", class: "ririkusu-icon"), "/" %>
+    <%= link_to image_tag("ririkusu-logo.png", class: "ririkusu-icon"), "/" ,target:"_top" %>
     
     <%= form_with url:search_songs_path, local: true, method: :get, class: "search-form" do |form| %>
      <%= form.text_field :keyword, placeholder: "アーティスト名・曲名・歌詞のキーワードから曲を探す", class: "search-input" %>

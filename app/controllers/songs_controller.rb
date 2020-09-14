@@ -23,6 +23,8 @@ class SongsController < ApplicationController
 
 def show
   @song = Song.find(params[:id])
+  @comment = Comment.new
+  @comments = @song.comments.includes(:user)
 end
 
 def search

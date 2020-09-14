@@ -7,7 +7,7 @@ class Song < ApplicationRecord
   has_one_attached :image
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :genre
-
+  has_many :comments 
   def self.search(search)
     if search != ""
       @song = Song.where('name LIKE(?)', "%#{search}%")

@@ -76,9 +76,7 @@
         <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"genre-select"}) %>
      </div>
      <%# /ジャンル%>
-
-    
-
+<div><iframe class="frame" src= "/songs" style="border: 0; width: 520px; height: 1000px;" marginheight="0" frameborder="0" scrolling="no"></iframe></div>
      <%# 注意書き %>
      <div class="caution">
        <p class="sentence">
@@ -89,7 +87,7 @@
      <%# /注意書き %>
      <%# 下部ボタン %>
      <div class="submit-btn-contents">
-       <%= f.submit "投稿する" ,class:"submit-btn" %>
+       <%= f.submit "投稿する" ,class:"submit-btn", id:"submit" %>
        <%=link_to 'もどる', root_path, class:"back-btn" %>
      </div>
       <%# /下部ボタン %>

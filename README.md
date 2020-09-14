@@ -130,6 +130,7 @@ python demo.py
 ### Association
 
 - has_many :annotates
+- has_many :comments
 - belongs_to :user
 - has_many :artists through song_artist_relations
 - has_many :song_artist_relations
@@ -146,7 +147,7 @@ python demo.py
 ### Association
 - belongs_to :user
 - belongs_to :song
-- has_many :comments
+
 
 ## artists テーブル
 |     Column       |  Type      |            Options             |
@@ -164,11 +165,11 @@ python demo.py
 | ---------------- | ---------- | -------------------------------|
 |      text        | text       | null: false                    |
 | user             | references | null: false, foreign_key: true |
-| annotate         | references | null: false, foreign_key: true |
+| song             | references | null: false, foreign_key: true |
 ### Association
 
 - belongs_to :user
-- belongs_to :annotate
+- belongs_to :song
 
 ## profiles テーブル
 |     Column       |  Type      |            Options             |

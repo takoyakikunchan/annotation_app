@@ -116,6 +116,7 @@
 /* 注意書き */
 .caution {
   padding: 5vh 0;
+  margin-top:-200px;
 }
 
 .sentence>a {

@@ -21,9 +21,16 @@
   margin-top:60px;
   margin-left: 30px;
 }
-.song_text{
-  padding:40px 120px;
+.half{
+  display:flex;
   background:rgba(237, 237, 245, 0.1);
+}
+.annotation_space{
+  width:50%;
+}
+.song_text{
+  width:50%;
+  padding:40px 70px;
 }
 .song_translate{
   padding:10px 120px 30px 120px;
@@ -71,4 +78,24 @@ display: flex;
   opacity:0.8;
   font-weight: bolder;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+}
+
+.annotation-btn {
+  width: 150px;
+  background: #3ccace;
+  text-align: center;
+  border-radius: 10%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 20px 10px;
+}
+
+.annotation-btn-text {
+  color: #fff;
+  display: block;
+  text-decoration: none;
+}
+.addannotation{
+  font-size: 1.5em 
 }
