@@ -54,8 +54,8 @@
          <span class="indispensable">(必須)</span>
         </div>
         <div class="click-upload">
-         <div class="flex"> <%= image_tag @song.image,class:"preview-image" %>
-          <%= f.file_field :image, id:"item-image" ,class:"fileupload" %></div>
+         <div class="flex"> <%= image_tag @song.image,class:"preview-image",id:"default-image" %>
+          <%= f.file_field :image, id:"song-image" ,class:"fileupload" %></div>
           <p>
            写真を変更する場合はファイルをアップロード
           </p>

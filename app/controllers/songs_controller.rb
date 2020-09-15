@@ -1,16 +1,17 @@
 class SongsController < ApplicationController
   before_action :move_to_login, only: [:new]
+  before_action :set_song, only: [:show, :destroy, :edit, :update]
   def index
     @songs = Song.all.includes(:user).order(id: 'DESC')
   end
 
   def new
-    @song = SongArtist.new
+    @song = SongsArtist.new
   end
 
   def create
-    @song = SongArtist.new(song_params)
-    url = params[:song_artist][:youtube_url]
+    @song = SongsArtist.new(song_params)
+    url = params[:songs_artist][:youtube_url]
     url = url.last(11)
     @song.youtube_url = url
 
@@ -33,14 +34,19 @@ def edit
 end
 
 def update
-  binding.pry
-  @song = SongArtist.new(song_update_params)
-  if @song.update
+  song = SongsArtist.new(song_update_params)
+  if song.image == nil
+    song.image = @song.image
+  end
+  if song.valid?
+     song.update
     @song = Song.find(params[:id])
     @comment = Comment.new
     @comments = @song.comments.includes(:user)
     render :show
   else
+    @song = Song.find(params[:id])
+    @artist =@song.artists
     render :edit
   end
 end
@@ -66,11 +72,14 @@ end
   private
 # Create
   def song_params
-    params.require(:song_artist).permit(:name, :text, :image, :translate, :youtube_url, :genre_id, :art_name,:producer,:featuring).merge(user_id: current_user.id)
+    params.require(:songs_artist).permit(:name, :text, :image, :translate, :youtube_url, :genre_id, :art_name,:producer,:featuring).merge(user_id: current_user.id)
   end
 
   # Update
   def song_update_params
-    params.require(:song).permit(:name, :text, :image, :translate, :youtube_url, :genre_id, :art_name,:producer,:featuring).merge(user_id: current_user.id)
+    params.require(:song).permit(:name, :text, :image, :translate, :youtube_url, :genre_id, :art_name,:producer,:featuring).merge(user_id: current_user.id,song_id: params[:id])
+  end
+  def set_song
+    @song = Song.find(params[:id])
   end
 end
