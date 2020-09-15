@@ -51,9 +51,9 @@ def update
   end
 end
 
-def destory
+def destroy
   if @song.destroy
-    redirect_to songs_path
+    redirect_to root_path
   else
     render :show
   end
