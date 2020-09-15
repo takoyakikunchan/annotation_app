@@ -3,7 +3,7 @@ class Song < ApplicationRecord
   validates :genre_id, numericality: { other_than: 1 }
   belongs_to :user
   has_many :song_artist_relations
-  has_many :artists, through: :song_artist_relations
+  has_many :artists, through: :song_artist_relations, dependent: :destroy
   has_one_attached :image
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :genre
