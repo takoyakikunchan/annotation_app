@@ -64,12 +64,13 @@
   font-weight: bolder;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
 }
+
 .art_name_text{
   font-size:20px;
-  color:white;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
   margin-bottom: 4px;
 }
+
 .flex{
 display: flex;
 }
@@ -79,7 +80,14 @@ display: flex;
   font-weight: bolder;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
 }
-
+.producer_show{
+  opacity:0.8;
+  font-weight: bolder;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+}
+.producer_show :hover{
+ color:whitesmoke;
+}
 .annotation-btn {
   width: 150px;
   background: #3ccace;
@@ -89,6 +97,10 @@ display: flex;
   right: 32px;
   position: fixed;
   padding: 20px 10px;
+}
+
+.art_name_text :hover{
+  color:whitesmoke;
 }
 
 

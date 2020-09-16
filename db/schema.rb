@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 2020_09_14_004303) do
 
   create_table "artists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "art_name", null: false
-    t.string "producer", null: false
     t.string "featuring", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -49,6 +48,12 @@ ActiveRecord::Schema.define(version: 2020_09_14_004303) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["song_id"], name: "index_comments_on_song_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "producers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "producer_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -76,8 +81,10 @@ ActiveRecord::Schema.define(version: 2020_09_14_004303) do
     t.text "translate"
     t.integer "genre_id", null: false
     t.bigint "user_id", null: false
+    t.bigint "producer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["producer_id"], name: "index_songs_on_producer_id"
     t.index ["user_id"], name: "index_songs_on_user_id"
   end
 
@@ -100,5 +107,6 @@ ActiveRecord::Schema.define(version: 2020_09_14_004303) do
   add_foreign_key "sns_credentials", "users"
   add_foreign_key "song_artist_relations", "artists"
   add_foreign_key "song_artist_relations", "songs"
+  add_foreign_key "songs", "producers"
   add_foreign_key "songs", "users"
 end

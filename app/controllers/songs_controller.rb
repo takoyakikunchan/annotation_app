@@ -15,7 +15,8 @@ class SongsController < ApplicationController
     url = url.last(11)
     @song.youtube_url = url
 
-    if @song.save
+    if @song.valid?
+      @song.save
       render :create
     else
       render :new
@@ -31,6 +32,7 @@ end
 def edit
   @song = Song.find(params[:id])
   @artist =@song.artists
+  @producer=@song.producer
 end
 
 def update
@@ -72,12 +74,12 @@ end
   private
 # Create
   def song_params
-    params.require(:songs_artist).permit(:name, :text, :image, :translate, :youtube_url, :genre_id, :art_name,:producer,:featuring).merge(user_id: current_user.id)
+    params.require(:songs_artist).permit(:name, :text, :image, :translate, :youtube_url, :genre_id, :art_name,:featuring,:producer_name).merge(user_id: current_user.id)
   end
 
   # Update
   def song_update_params
-    params.require(:song).permit(:name, :text, :image, :translate, :youtube_url, :genre_id, :art_name,:producer,:featuring).merge(user_id: current_user.id,song_id: params[:id])
+    params.require(:song).permit(:name, :text, :image, :translate, :youtube_url, :genre_id, :art_name,:featuring,:producer_name).merge(user_id: current_user.id,song_id: params[:id])
   end
   def set_song
     @song = Song.find(params[:id])

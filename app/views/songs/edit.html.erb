@@ -22,15 +22,14 @@
        </div>
         <%= f.text_area :art_name, class:"songs-text", id:"item-name", value:a.art_name ,placeholder:"歌手名 例）perfurmer", maxlength:"40" %>
        <div class="weight-bold-text">
-         プロデューサー
-       </div>
-       <%= f.text_area :producer, class:"songs-text", id:"item-name", value:a.producer ,placeholder:"例）中田ヤシタカ", maxlength:"40" %>
-       <div class="weight-bold-text">
          コラボアーティスト
        </div>
         <%= f.text_area :featuring, class:"songs-text", id:"item-name", value:a.featuring ,placeholder:"例） 菅田正樹", maxlength:"40" %>
         <%end%>
-
+       <div class="weight-bold-text">
+         プロデューサー
+       </div>
+       <%= f.text_area :producer_name, class:"songs-text", id:"item-name",value:@producer.producer_name,placeholder:"例）中田ヤシタカ", maxlength:"40" %>
        <div class="songs-explain">
          <div class="weight-bold-text">
            歌詞

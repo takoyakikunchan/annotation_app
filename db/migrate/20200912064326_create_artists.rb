@@ -2,7 +2,6 @@ class CreateArtists < ActiveRecord::Migration[6.0]
   def change
     create_table :artists do |t|
       t.string :art_name, null: false, uniqueness: true
-      t.string :producer, null: false, uniqueness: true
       t.string :featuring, null: false, uniqueness: true
       t.timestamps
     end

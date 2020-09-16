@@ -7,7 +7,9 @@ class CreateSongs < ActiveRecord::Migration[6.0]
       t.text :translate                                   
       t.integer :genre_id,       null: false                    
       t.references :user,        null: false, foreign_key: true
+      t.references :producer,        null: false, foreign_key: true
       t.timestamps
+
     end
   end
 end
