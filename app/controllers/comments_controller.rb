@@ -7,6 +7,15 @@ class CommentsController < ApplicationController
     end
   end
 
+
+def destroy
+  @comment = Comment.find(params[:id])
+  if @comment.destroy
+   redirect_to "/songs/#{@comment.song.id}"
+  end
+end
+
+
   private
   def comment_params
     params.require(:comment).permit(:text).merge(user_id: current_user.id, song_id: params[:song_id])

@@ -176,3 +176,8 @@ display: flex;
 .flex{
   display:flex;
 }
+
+.trash-icon{
+  color:skyblue;
+  margin:0 3px 0 5px;
+}
