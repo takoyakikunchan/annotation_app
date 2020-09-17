@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
   def create
-    song = Song.find(params[:song_id])
+    @song = Song.find(params[:song_id])
     @comment= Comment.new(comment_params)
     if @comment.save
-      ActionCable.server.broadcast 'comment_channel', {content: @comment, nickname: @comment.user.nickname}
+      ActionCable.server.broadcast 'comment_channel', {content: @comment, nickname: @comment.user.nickname,song:@song}
     end
   end
 
