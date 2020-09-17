@@ -3,6 +3,7 @@ class Song < ApplicationRecord
   validates :genre_id, numericality: { other_than: 1 }
   belongs_to :user
   belongs_to :producer, optional: true
+  belongs_to :featuring, optional: true
   has_many :song_artist_relations
   has_many :artists, through: :song_artist_relations, dependent: :destroy
   has_one_attached :image
@@ -15,8 +16,8 @@ class Song < ApplicationRecord
       @text = Song.where('text LIKE(?)', "%#{search}%")
       @translate = Song.where('translate LIKE(?)', "%#{search}%")
       @artist = Artist.where('art_name LIKE(?)', "%#{search}%")
-      @producer = Artist.where('producer LIKE(?)', "%#{search}%")
-      @featuring = Artist.where('featuring LIKE(?)', "%#{search}%")
+      @producer = Producer.where('producer_name LIKE(?)', "%#{search}%")
+      @featuring = Featuring.where('featuring_name LIKE(?)', "%#{search}%")
       
       @songs = []
        @song.each do |song| 

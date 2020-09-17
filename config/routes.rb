@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations'
   }
+  resources :featurings
   resources :producers
   resources :artists
   root "songs#index"

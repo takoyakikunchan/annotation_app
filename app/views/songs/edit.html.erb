@@ -14,18 +14,18 @@
          曲名
          <span class="indispensable">(必須)</span>
        </div>
-        <%= f.text_area :name, class:"songs-text", id:"item-name" ,placeholder:"曲名 例）リリスクちゃん", maxlength:"40" %>
+        <%= f.text_area :name, class:"songs-text", id:"item-name", placeholder:"曲名 例）リリスクちゃん", maxlength:"40" %>
        <% @artist.each do |a|%>
        <div class="weight-bold-text">
          歌手名
          <span class="indispensable">(必須)</span>
        </div>
         <%= f.text_area :art_name, class:"songs-text", id:"item-name", value:a.art_name ,placeholder:"歌手名 例）perfurmer", maxlength:"40" %>
+        <%end%>
        <div class="weight-bold-text">
          コラボアーティスト
        </div>
-        <%= f.text_area :featuring, class:"songs-text", id:"item-name", value:a.featuring ,placeholder:"例） 菅田正樹", maxlength:"40" %>
-        <%end%>
+       <%= f.text_area :featuring, class:"songs-text", id:"item-name", value:@featuring.featuring_name,placeholder:"例） 菅田正樹", maxlength:"40" %>
        <div class="weight-bold-text">
          プロデューサー
        </div>

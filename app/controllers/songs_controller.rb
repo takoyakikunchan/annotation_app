@@ -33,6 +33,7 @@ def edit
   @song = Song.find(params[:id])
   @artist =@song.artists
   @producer=@song.producer
+  @featuring=@song.featuring
 end
 
 def update
@@ -49,6 +50,8 @@ def update
   else
     @song = Song.find(params[:id])
     @artist =@song.artists
+    @producer=@song.producer
+    @featuring=@song.featuring
     render :edit
   end
 end
@@ -74,12 +77,12 @@ end
   private
 # Create
   def song_params
-    params.require(:songs_artist).permit(:name, :text, :image, :translate, :youtube_url, :genre_id, :art_name,:featuring,:producer_name).merge(user_id: current_user.id)
+    params.require(:songs_artist).permit(:name, :text, :image, :translate, :youtube_url, :genre_id, :art_name,:featuring_name,:producer_name).merge(user_id: current_user.id)
   end
 
   # Update
   def song_update_params
-    params.require(:song).permit(:name, :text, :image, :translate, :youtube_url, :genre_id, :art_name,:featuring,:producer_name).merge(user_id: current_user.id,song_id: params[:id])
+    params.require(:song).permit(:name, :text, :image, :translate, :youtube_url, :genre_id, :art_name,:featuring_name,:producer_name).merge(user_id: current_user.id,song_id: params[:id])
   end
   def set_song
     @song = Song.find(params[:id])

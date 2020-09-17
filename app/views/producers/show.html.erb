@@ -1,1 +1,9 @@
-a
+<%= @producer.producer_name%>
+   <%@producer.songs.each do |song| %>
+    <%= link_to song_path(song.id) ,class:"show_link" do %>
+   <%song.name%>
+   <div>
+     <%= image_tag song.image, class: "song_img" %>
+   </div>
+    <% end %>
+  <%end%>
