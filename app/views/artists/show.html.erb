@@ -1,4 +1,41 @@
-<%= @artist.art_name%>
+<%= render "shared/header" %>
+<div class="main-artist-info">
+ <div class="art_pro_name"><%= @artist.art_name%></div>
+
+ <% unless @artist.artist_profile == nil %>
+
+<div class="background">
+<div class="bg-mask">
+<style>
+  .background{
+   background-image: url(<%= rails_representation_url(@artprofile.image.variant({}), only_path: true) if @artprofile.image.attached?%>);
+   margin-bottom:30px;
+   background-position: center;
+  }
+  </style>
+    
+    <%= image_tag @artprofile.image.variant(resize:'500x500'), class: 'art_profile_img' if @artprofile.image.attached?%>
+</div>
+</div>   
+   <div class="margin-left-40">
+     <div class ="follow-icon">
+     <span class="follow-text"><%= @artist.art_name%>をフォローする</span>
+     <%if @artprofile.insta.present?%>
+       <div class="insta-icon"><a class="insta_btn" href="https://instagram.com/<%= @artprofile.insta%>?igshid=1qk53p882ls3w?ref=badge"><span class="insta"><i class="fab fa-instagram"></i></span> </a></div>
+     <%end%>
+     <%if @artprofile.twitter.present?%>
+     <div class= "twitter-icon"> <a href="https://twitter.com/<%= @artprofile.twitter%>?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-screen-name="false" data-lang="en" data-show-count="false"><i class="fab fa-twitter-square"></i></a></div>
+     <%end%>
+      </div>
+    </div>
+
+ <%if @artprofile.biography.present?%>
+       <div class= "bio-text"><%= @artprofile.biography%></div>
+     <%end%>  
+ <%end%>
+
+ <div class ="art_pro_font"><%= @artist.art_name%> の曲一覧</div>
+  <div class="flex">
    <%@artist.songs.each do |song| %>
     <%= link_to song_path(song.id) ,class:"show_link" do %>
    <%song.name%>
@@ -6,7 +43,17 @@
      <%= image_tag song.image, class: "song_img" %>
    </div>
     <% end %>
+   <%end%> 
+ </div>
+
+  <% if @artist.artist_profile == nil %>
+   <div class="add_profile_link"><%= link_to 'プロフィールを追加する',"/artists/#{@artist.id}/artist_profiles/new", class: "addartist_profile" %></div>
+  <%else%>
+  <div class="add_profile_link"><%= link_to 'プロフィールを編集する',"/artists/#{@artist.id}/artist_profiles/new", class: "addartist_profile" %></div>
   <%end%>
 
-画像
-bio
+
+  <div class="margin-bottom-10"><%=link_to 'もどる', root_path, class:"back-btn-art" %></div>
+</div>
+
+<%= render "shared/second-footer"%>

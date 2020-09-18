@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   }
   resources :featurings
   resources :producers
-  resources :artists
+  resources :artists do
+    resources :artist_profiles
+  end
   root "songs#index"
   resources :songs  do
     resources :comments, only:[:create,:destroy]

@@ -3,5 +3,6 @@ class ArtistsController < ApplicationController
   end
   def show
     @artist=Artist.find(params[:id])
+    @artprofile = @artist.artist_profile
   end
 end
