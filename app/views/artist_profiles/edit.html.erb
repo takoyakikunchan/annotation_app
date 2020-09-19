@@ -1,0 +1,40 @@
+ <header class="songs-main-header">
+    <%= link_to image_tag("ririkusu-logo.png", class: "ririkusu-icon-new"), "/" %>
+  </header>
+
+   <div class="artist_form_head"><span class="color-pink"><%=@artist.art_name%></span> &nbsp; のプロフィール編集</div>
+ <%= form_with(model: [@artist, @art_profile], local: true) do |f| %>
+   <div class="margin-left-120px">
+      <div class="img-upload">
+        <div class="weight-bold-text">
+         プロフィール写真
+        </div>
+        <div class="click-upload-art">
+          <%= f.file_field :image, id:"song-image" ,class:"fileupload"%>
+          <%= image_tag @art_profile.image,class:"preview-image",id:"default-image" %>
+          <p>
+           クリックしてファイルをアップロード
+         </p>
+          <div id="image-list"></div>
+        </div>
+      </div>
+      <div class="weight-bold-text">
+        バイオグラフィー
+      </div>
+        <%= f.text_area :biography, class:"artist-form", id:"item-info" ,placeholder:" 例） ストリートギャング「〇〇」のメンバーを経て〇〇となった後、VineとInstagramへの投稿で話題を集めインターネットセレブリティとなった。その後、2015年から2017年までVH1のリアリティ番組『〇〇』にレギュラー出演し、2つのミックステープを発表した。グラ〇〇賞の候補の他に、アメリカン・ミュージック・アワード、MTV Video 〇〇 Awards、BETヒッ〇〇ホップ賞、ビルボード・〇〇・アワードを受賞している。",rows:"7" ,maxlength:"5000" %>
+      <div class="weight-bold-text">
+        instagramのid
+      </div>
+      <%= f.text_area :insta, class:"artist-form", id:"item-name", placeholder:"@の後からIDを入力 例） 12345 (@12345のアカウントの場合）", maxlength:"100" %>
+    
+     <div class="weight-bold-text">
+        twitterのid
+     </div>
+      <%= f.text_area :twitter, class:"artist-form", id:"item-name", placeholder:"@の後からIDを入力 例） 12345 (@12345のアカウントの場合）", maxlength:"100" %>
+  </div>
+   <div class="submit-btn-contents">
+       <%= f.submit "更新する" ,class:"submit-btn-art", id:"submit" %>
+       <%end%>
+        <div class="margin-bottom"><%=link_to 'もどる', root_path, class:"back-btn-art-new" %></div>
+  </div>
+<%= render "shared/second-footer"%>

@@ -46,11 +46,13 @@
    <%end%> 
  </div>
 
-  <% if @artist.artist_profile == nil %>
+<% if current_user %>
+  <% if @artist.artist_profile == nil%>
    <div class="add_profile_link"><%= link_to 'プロフィールを追加する',"/artists/#{@artist.id}/artist_profiles/new", class: "addartist_profile" %></div>
   <%else%>
-  <div class="add_profile_link"><%= link_to 'プロフィールを編集する',"/artists/#{@artist.id}/artist_profiles/new", class: "addartist_profile" %></div>
+  <div class="add_profile_link"><%= link_to 'プロフィールを編集する', "/artists/#{@artist.id}/artist_profiles/#{@artprofile.id}/edit", class: "addartist_profile" %></div>
   <%end%>
+<%end%>
 
 
   <div class="margin-bottom-10"><%=link_to 'もどる', root_path, class:"back-btn-art" %></div>

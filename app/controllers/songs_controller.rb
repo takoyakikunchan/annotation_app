@@ -38,9 +38,11 @@ end
 
 def update
   song = SongsArtist.new(song_update_params)
+
   if song.image == nil
     song.image = @song.image.blob
   end
+
   if song.valid?
      song.update
     @song = Song.find(params[:id])
