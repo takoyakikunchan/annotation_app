@@ -44,9 +44,12 @@
  <%= @song.translate%>
  </div> 
 <%end%> 
+
+<%unless @song.youtube_url == ""%>
 <div  class="youtube">
  <div><iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @song.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 </div>
+<%end%> 
 <div class="comment-box">
   <% if current_user %>
       <%= form_with(model: [@song, @comment], local: true) do |form| %>

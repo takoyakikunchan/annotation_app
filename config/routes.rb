@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   resources :featurings
-  resources :producers
+  resources :producers do
+    resources :producer_profiles
+  end
   resources :artists do
     resources :artist_profiles
   end

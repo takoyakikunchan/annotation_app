@@ -1,0 +1,40 @@
+  <header class="songs-main-header">
+    <%= link_to image_tag("ririkusu-logo.png", class: "ririkusu-icon-new"), "/" %>
+  </header>
+
+   <div class="artist_form_head"><span class="color-pink"><%=@producer.producer_name%></span> &nbsp; のプロフィール追加</div>
+ <%= form_with(model: [@producer, @pro_profile], local: true) do |f| %>
+   <div class="margin-left-120px">
+      <div class="img-upload">
+        <div class="weight-bold-text">
+         プロフィール写真
+        </div>
+        <div class="click-upload-art">
+         <p>
+           クリックしてファイルをアップロード
+         </p>
+          <%= f.file_field :image, id:"song-image" %>
+         
+          <div id="image-list"></div>
+        </div>
+      </div>
+      <div class="weight-bold-text">
+        バイオグラフィー
+      </div>
+        <%= f.text_area :biography, class:"artist-form", id:"item-info" ,placeholder:" 例） 所属していたエレクトロ・デュオ「THE LOW〇〇WS」は日本国外でも評価され、スペ〇〇ワーTVが主催する「SPACE 〇〇 VIDEO AWARDS 2010」ではGROOVE VIDEO部門に入賞したり、〇〇など国外のレーベルからも音源をリリースしている。なお、アルバムはBMG JAPANやユニバーサルミュージックなどのメジャーレーベルからリリースしている。サマーソ〇〇08、ROCK IN J〇〇09、サマー〇〇ク2012、FREE〇〇UNE 0＜ZERO＞ A NEW ZERO 2012にも出演した。2015年にDJを引退し、レーベル『Y〇〇WN』を創立、2018年に一夜限りのDJ復活と称し、F〇〇I ROCK FESTIVAL '18 レ〇〇ーキーに出演。現在はプライベートスタジオ『Husky Studio』を運営している。",rows:"7" ,maxlength:"5000" %>
+      <div class="weight-bold-text">
+        instagramのid
+      </div>
+      <%= f.text_area :insta, class:"artist-form", id:"item-name", placeholder:"@の後からIDを入力 例） 12345 (@12345のアカウントの場合）", maxlength:"50" %>
+    
+     <div class="weight-bold-text">
+        twitterのid
+      </div>
+      <%= f.text_area :twitter, class:"artist-form", id:"item-name", placeholder:"@の後からIDを入力 例） 12345 (@12345のアカウントの場合）", maxlength:"50" %>
+  </div>
+      <div class="submit-btn-contents">
+       <%= f.submit "投稿する" ,class:"submit-btn-art", id:"submit" %>
+       <%end%>
+        <div class="margin-bottom"><%=link_to 'もどる', root_path, class:"back-btn-art-new" %></div>
+     </div>
+     <%= render "shared/second-footer"%>

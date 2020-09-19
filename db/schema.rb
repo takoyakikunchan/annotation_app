@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_17_165546) do
+ActiveRecord::Schema.define(version: 2020_09_19_152816) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -63,6 +63,16 @@ ActiveRecord::Schema.define(version: 2020_09_17_165546) do
     t.string "featuring_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "producer_profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "biography"
+    t.string "insta"
+    t.string "twitter"
+    t.bigint "producer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["producer_id"], name: "index_producer_profiles_on_producer_id"
   end
 
   create_table "producers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -123,6 +133,7 @@ ActiveRecord::Schema.define(version: 2020_09_17_165546) do
   add_foreign_key "artist_profiles", "artists"
   add_foreign_key "comments", "songs"
   add_foreign_key "comments", "users"
+  add_foreign_key "producer_profiles", "producers"
   add_foreign_key "sns_credentials", "users"
   add_foreign_key "song_artist_relations", "artists"
   add_foreign_key "song_artist_relations", "songs"
