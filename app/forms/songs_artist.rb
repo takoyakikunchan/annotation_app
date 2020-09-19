@@ -14,7 +14,6 @@ class SongsArtist
     SongArtistRelation.create(song_id: song.id, artist_id: artist.id)
   end
   def update
-    binding.pry
     featuring = Featuring.where(featuring_name: featuring_name).first_or_create
     featuring.update(featuring_name: featuring_name)
     producer = Producer.where(producer_name: producer_name).first_or_create
