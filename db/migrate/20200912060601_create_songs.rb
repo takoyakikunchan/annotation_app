@@ -5,7 +5,8 @@ class CreateSongs < ActiveRecord::Migration[6.0]
       t.text :text,              null: false 
       t.string :youtube_url,     null: false                                                            
       t.text :translate                                   
-      t.integer :genre_id,       null: false                    
+      t.integer :genre_id,       null: false 
+      t.date :sales_date,          null: false
       t.references :user,        null: false, foreign_key: true
       t.references :producer,        null: false, foreign_key: true
       t.references :featuring,        null: false, foreign_key: true

@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 2020_09_17_165546) do
     t.string "youtube_url", null: false
     t.text "translate"
     t.integer "genre_id", null: false
+    t.date "sales_date", null: false
     t.bigint "user_id", null: false
     t.bigint "producer_id", null: false
     t.bigint "featuring_id", null: false

@@ -8,9 +8,11 @@ class SongsController < ApplicationController
   def new
     @song = SongsArtist.new
   end
-
+ 
   def create
-    @song = SongsArtist.new(song_params)
+    date = params.require(:songs_artist).permit(:sales_date)
+    sales_date = Date.parse( date["sales_date(1i)"] + "-" + date["sales_date(2i)"] + "-" + date["sales_date(3i)"] )
+    @song = SongsArtist.new(song_params.merge(sales_date: sales_date))
     url = params[:songs_artist][:youtube_url]
     url = url.last(11)
     @song.youtube_url = url
@@ -37,7 +39,9 @@ def edit
 end
 
 def update
-  song = SongsArtist.new(song_update_params)
+  date = params.require(:song).permit(:sales_date)
+  sales_date = Date.parse( date["sales_date(1i)"] + "-" + date["sales_date(2i)"] + "-" + date["sales_date(3i)"] )
+  song = SongsArtist.new(song_update_params.merge(sales_date: sales_date))
 
   if song.image == nil
     song.image = @song.image.blob
@@ -84,7 +88,7 @@ end
 
   # Update
   def song_update_params
-    params.require(:song).permit(:name, :text, :image, :translate, :youtube_url, :genre_id, :art_name,:featuring_name,:producer_name).merge(user_id: current_user.id,song_id: params[:id])
+    params.require(:song).permit(:name, :text, :image, :translate, :youtube_url, :genre_id,:art_name,:featuring_name,:producer_name).merge(user_id: current_user.id,song_id: params[:id])
   end
   def set_song
     @song = Song.find(params[:id])

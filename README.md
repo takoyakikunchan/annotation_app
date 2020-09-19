@@ -124,6 +124,7 @@ python demo.py
 |         text             |    text    | null: false                    |
 |        translate         |  text      | null: false                    |
 |        genre_id          |   integer  | null: false                    |
+|         sales_day        |  datetime  | null: false                    |
 |        artist            | references | null: false, foreign_key: true |
 |         user             | references | null: false, foreign_key: true |
 

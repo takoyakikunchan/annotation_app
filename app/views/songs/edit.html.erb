@@ -30,6 +30,18 @@
          プロデューサー
        </div>
        <%= f.text_area :producer_name, class:"songs-text", id:"item-name",value:@producer.producer_name,placeholder:"例）中田ヤシタカ", maxlength:"40" %>
+    <div class='input-sales-wrap'>
+      <%= raw sprintf(
+                  f.date_select(
+                    :sales_date,
+                    class:'select-birth',
+                    use_month_numbers: true,
+                    prompt:'--',
+                    start_year: (Time.now.year),
+                    end_year: 1930,
+                    date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+    </div>
        <div class="songs-explain">
          <div class="weight-bold-text">
            歌詞
