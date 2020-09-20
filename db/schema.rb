@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_19_152816) do
+ActiveRecord::Schema.define(version: 2020_09_20_101605) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -31,6 +31,23 @@ ActiveRecord::Schema.define(version: 2020_09_19_152816) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "annotations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "album"
+    t.string "sample"
+    t.text "message"
+    t.text "trouble"
+    t.text "intention", null: false
+    t.text "slang"
+    t.text "info"
+    t.text "award"
+    t.text "relationship"
+    t.text "image_text"
+    t.bigint "song_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["song_id"], name: "index_annotations_on_song_id"
   end
 
   create_table "artist_profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -130,6 +147,7 @@ ActiveRecord::Schema.define(version: 2020_09_19_152816) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "annotations", "songs"
   add_foreign_key "artist_profiles", "artists"
   add_foreign_key "comments", "songs"
   add_foreign_key "comments", "users"

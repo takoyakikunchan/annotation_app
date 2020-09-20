@@ -26,20 +26,52 @@
   background:rgba(237, 237, 245, 0.1);
 }
 .annotation_space{
-  width:50%;
+  width:60%;
+  padding-top:55px;
+  margin: 0px 25px;
 }
 .song_text{
   width:50%;
-  padding:40px 70px;
+  padding:10px 70px;
 }
+
+/*注釈*/
+
+.annotation_img {
+  width: 33vh;
+  height: 33vh;
+  object-fit: cover;
+  margin-left: 20px;
+}
+.font-size{
+  font-size:14px;
+  color:rgb(50, 50, 52);
+}
+.plum{
+color:plum;
+font-size:20px;
+}
+
+.annotation-title{
+  margin-top:10px;
+  color:rgba(227, 38, 237, 0.8);
+}
+
+.annotation-margin{
+  margin-top:10px;
+  color:rgb(34, 34, 35);
+  padding-right:50px;
+  font-size:15px;
+}
+
 .song_translate{
   padding:10px 120px 30px 120px;
   background:rgba(237, 237, 245, 0.1);
 }
 .song_translate p{
-  margin-left:400px;
-  font-weight: bolder;
-  color:purple;
+  margin-left:460px;
+  color:plum;
+  font-size:20px;
 }
 .youtube{
   margin-left: 400px;
@@ -109,6 +141,16 @@ display: flex;
   display: block;
   text-decoration: none;
 }
+.hover-annotation{
+  color: #fff;
+  opacity:0.9;
+}
+
+.hover-annotation:hover{
+  color: #fff;
+  opacity: 1;
+}
+
 .addannotation{
   font-size: 1.5em 
 }

@@ -25,11 +25,13 @@ class SongsController < ApplicationController
     end
   end
 
-def show
-  @song = Song.find(params[:id])
-  @comment = Comment.new
-  @comments = @song.comments.includes(:user)
-end
+
+  def show
+    @song = Song.find(params[:id])
+    @annotation = @song.annotation
+    @comment = Comment.new
+    @comments = @song.comments.includes(:user)
+  end
 
 def edit
   @song = Song.find(params[:id])

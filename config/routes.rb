@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
   root "songs#index"
   resources :songs  do
+    resources :annotations
     resources :comments, only:[:create,:destroy]
     collection do
       get 'search'

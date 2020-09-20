@@ -11,7 +11,7 @@
         </div>
         <div class="click-upload-art">
           <%= f.file_field :image, id:"song-image" ,class:"fileupload"%>
-          <%= image_tag @art_profile.image,class:"preview-image",id:"default-image" %>
+          <%= image_tag @art_profile.image,class:"preview-image",id:"default-image" if @art_profile.image.attached?%>
           <p>
            クリックしてファイルをアップロード
          </p>

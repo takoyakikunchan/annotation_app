@@ -7,6 +7,7 @@ class Song < ApplicationRecord
   has_many :song_artist_relations
   has_many :artists, through: :song_artist_relations, dependent: :destroy
   has_one_attached :image
+  has_one :annotation
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :genre
   has_many :comments 

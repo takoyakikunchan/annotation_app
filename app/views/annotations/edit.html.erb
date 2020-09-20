@@ -1,0 +1,90 @@
+  <header class="songs-main-header">
+    <%= link_to image_tag("ririkusu-logo.png", class: "ririkusu-icon-new"), "/" %>
+  </header>
+
+   <div class="artist_form_head"><span class="color-pink"><%=@song.name%></span> &nbsp; の注釈・考察追加</div>
+ <%= form_with(model: [@song, @annotation], local: true) do |f| %>
+   <div class="margin-left-120px">
+      <div class="img-upload">
+        <div class="weight-bold-text">
+         関連画像
+        </div>
+        <div class="click-upload-art">
+         <p>
+           クリックしてファイルをアップロード
+         </p>
+          <%= f.file_field :image, id:"song-image" %>
+         <%= image_tag @annotation.image,class:"preview-image",id:"default-image" if @annotation.image.attached? %>
+          <div id="image-list"></div>
+        </div>
+      </div>
+      <div class="weight-bold-text">
+         画像の補足説明
+        </div>
+  <%= f.text_field :image_text, class:"string-form", id:"item-name", placeholder:"例）〇〇イベントの時。左は◆◆さん。", maxlength:"100" %>
+      <div class="weight-bold-text">
+        アルバム名
+      </div>
+        <%= f.text_field :album, class:"string-form", id:"item-info" ,rows:"3" ,maxlength:"5000" %>
+      <div class="weight-bold-text">
+        サンプリング曲
+      </div>
+      <%= f.text_field :sample, class:"string-form", id:"item-name", placeholder:"例）エリカ○ドゥの「on&〇〇」", maxlength:"50" %>
+    
+     <div class="weight-bold-text">
+        曲のメッセージ
+      </div>
+      <%= f.text_area :message, class:"message-form", id:"item-name", placeholder:"例）〇〇な人に対する応援歌。歌手の生まれ育った街に対する思い。グループの乗り越えてきた苦労と友情。", maxlength:"5000" %>
+  
+
+     <div class="weight-bold-text">
+        ビーフやトラブル・噂
+      </div>
+      <%= f.text_area :trouble, class:"message-form", id:"item-name", placeholder:"例）〇〇の「△△」という曲に対するアンサー。この曲で名指しされた〇〇はtwitterで「〜」と呟く。", maxlength:"5000" %>
+  
+
+
+     <div class="weight-bold-text">
+        歌詞の意味、ほのめかし
+         <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :intention, class:"message-form", id:"item-name", placeholder:"例）「〇〇」の歌詞は、歌手の育った環境が〇〇だったことをほのめかしている。「〜」の歌詞は、「〇〇」の曲からの引用", maxlength:"5000" %>
+  
+
+
+     <div class="weight-bold-text">
+        スラングや専門用語
+      </div>
+      <%= f.text_area :slang, class:"message-form", id:"item-name", placeholder:"「例）〇〇」は日本語でいう「〇〇」みたいな意味合い。", maxlength:"10000" %>
+  
+     <div class="weight-bold-text">
+       コラボアーティストやプロデューサーとの関係
+      </div>
+      <%= f.text_area :relationship, class:"message-form", id:"item-name", placeholder:"「例) 〇〇とのコラボはこれが初。この曲のヒットをきっかけに２作目「〜」が生まれる。", maxlength:"10000" %>
+
+     <div class="weight-bold-text">
+        イベント・メディア出演情報
+      </div>
+      <%= f.text_area :info, class:"artist-form", id:"item-name", placeholder:"例）〇月〇日に「〜」でリリパ開催。カムバ期間は〇〜〇月", maxlength:"5000" %>
+     <div class="weight-bold-text">
+       受賞歴 
+      </div>
+      <%= f.text_area :award, class:"artist-form", id:"item-name", placeholder:"グラ〇〇賞の国際部門受賞", maxlength:"3000" %>
+  
+
+    <%# 注意書き %>
+     <div class="caution">
+       <p class="sentence">
+        <a href="#">初めて投稿する人は、注釈ガイド</a>
+        で書き方をチェックしてください。
+       </p>
+     </div>
+     <%# /注意書き %>
+</div>
+
+      <div class="submit-btn-contents">
+       <%= f.submit "更新する" ,class:"submit-btn-art", id:"submit" %>
+       <%end%>
+        <div class="margin-bottom"><%=link_to 'もどる', root_path, class:"back-btn-art-new" %></div>
+     </div>
+     <%= render "shared/second-footer"%>

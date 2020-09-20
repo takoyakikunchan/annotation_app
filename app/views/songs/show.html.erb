@@ -1,10 +1,5 @@
 <%= render "shared/header" %>
-<% if current_user %>
- <div class="hover"><%= link_to '歌詞を編集する',edit_song_path(@song.id), method: :get, class: "lyric-edit-btn" %></div>
- <% if current_user.id == 1%>
- <%= link_to '削除', song_path(@song.id), method: :delete %>
- <%end%> 
-<%end%> 
+
 <div class="background">
  <div class="bg-mask">
   <style>
@@ -35,9 +30,57 @@
 </div>
 </div> 
 <div class= half>
-<div class="song_text"><%= @song.text%></div> 
-<div class="annotation_space"></div> 
+
+<div class="song_text">
+<% if current_user %>
+ <div class="hover"><%= link_to '歌詞を編集する',edit_song_path(@song.id), method: :get, class: "lyric-edit-btn" %></div>
+ <% if current_user.id == 1%>
+ <%= link_to '削除', song_path(@song.id), method: :delete %>
+ <%end%> 
+<%end%> 
+
+<p class="plum">歌詞</p><%= @song.text%></div> 
+<div class="annotation_space">
+
+<% if @annotation %>
+
+<p class="plum">注釈・考察</p>
+ <div> <%= image_tag @annotation.image, class: "annotation_img" if @annotation.image.attached? %></div>
+  <%if @annotation.image_text.present?%>
+   <div class="font-size"> <%= @annotation.image_text %></div>
+  <%end%>
+  <%if @annotation.album.present?%>
+   <div class="annotation-title">アルバム</div><div class="annotation-margin"><%= @annotation.album%></div>
+  <%end%>
+  <%if @annotation.sample.present?%>
+   <div class="annotation-title">サンプリング</div><div class="annotation-margin"><%= @annotation.sample%></div>
+  <%end%>
+  <%if @annotation.message.present?%>
+    <div class="annotation-title">曲に込めた意味</div> <div class="annotation-margin"><%= @annotation.message %></div>
+  <%end%>
+  <% if @annotation.relationship.present?%>
+    <div class="annotation-title">コラボアーティスト/プロデューサーとの関係</div> <div class="annotation-margin"> <%= @annotation.relationship%></div>
+  <%end%>
+  <%if @annotation.trouble.present?%> 
+    <div class="annotation-title">ビーフ・トラブルや噂</div> <div class="annotation-margin">  <%= @annotation.trouble %></div>
+   <%end%>  
+  <%if @annotation.slang.present?%>
+    <div class="annotation-title">スラング・用語解説</div> <div class="annotation-margin"> <%= @annotation.slang %></div>
+  <%end%>
+  <%if @annotation.intention.present?%>
+   <div class="annotation-title">歌詞の意味・ほのめかし</div> <div class="annotation-margin"> <%= @annotation.intention %></div>
+  <%end%>
+  <%if @annotation.info.present?%>   
+    <div class="annotation-title">コンサート/パフォーマンス情報</div><div class="annotation-margin"> <%= @annotation.info %></div>
+  <%end%>
+  <% if @annotation.award.present?%>
+    <div class="annotation-title">受賞・チャート歴</div> <div class="annotation-margin"><%= @annotation.award%></div>
+  <%end%> 
+ 
+<%end%> 
 </div> 
+</div> 
+
 <%unless @song.translate == ""%>
  <div class="song_translate">
  <p>和訳</p>
@@ -91,9 +134,17 @@
      <div class="flex"><div class="hover"> <%= link_to '曲を通報する', "#", method: :get, class:'report-song' %></div>
      <div class="hover"> <%= link_to 'コメントを通報する', "#", method: :get, class:'report-comment' %></div></div>
 
-    <%= link_to "#" do %>
-   <div class="hover"> <div class='annotation-btn'>
-    <a href="#" class='annotation-btn-text'><p>注釈を追加する</p><i class="fas fa-marker fa-fw addannotation"></i></a>
+ <% if @annotation == nil%>
+    <%= link_to "/songs/#{@song.id}/annotations/new" do %>
+   <div class="hover-annotation"> <div class='annotation-btn'>
+    <span class='annotation-btn-text'><p>注釈を追加する</p><i class="fas fa-marker fa-fw addannotation"></i></span>
    </div></div>
+   <%end%>
+<%else%>
+<%= link_to "/songs/#{@song.id}/annotations/#{@annotation.id}/edit" do %>
+   <div class="hover-annotation"> <div class='annotation-btn'>
+    <span class='annotation-btn-text'><p>注釈を編集する</p><i class="fas fa-marker fa-fw addannotation"></i></span>
+   </div></div>
+   <%end%>
 <%end%>
  <%= render "shared/footer" %>
