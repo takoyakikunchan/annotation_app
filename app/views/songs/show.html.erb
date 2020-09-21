@@ -53,28 +53,28 @@
    <div class="annotation-title">アルバム</div><div class="annotation-margin"><%= @annotation.album%></div>
   <%end%>
   <%if @annotation.sample.present?%>
-   <div class="annotation-title">サンプリング</div><div class="annotation-margin"><%= @annotation.sample%></div>
+   <div class="annotation-title">サンプリング</div><div class="annotation-margin"><%= text_url_to_link(h(@annotation.sample)).html_safe %></div>
   <%end%>
   <%if @annotation.message.present?%>
-    <div class="annotation-title">曲に込めた意味</div> <div class="annotation-margin"><%= @annotation.message %></div>
+    <div class="annotation-title">曲に込めた意味</div> <div class="annotation-margin"><%= text_url_to_link(h(@annotation.message)).html_safe %></div>
   <%end%>
   <% if @annotation.relationship.present?%>
-    <div class="annotation-title">コラボアーティスト/プロデューサーとの関係</div> <div class="annotation-margin"> <%= @annotation.relationship%></div>
+    <div class="annotation-title">コラボアーティスト/プロデューサーとの関係</div> <div class="annotation-margin"><%= text_url_to_link(h(@annotation.relationship)).html_safe %></div>
   <%end%>
   <%if @annotation.trouble.present?%> 
-    <div class="annotation-title">ビーフ・トラブルや噂</div> <div class="annotation-margin">  <%= @annotation.trouble %></div>
+    <div class="annotation-title">ビーフ・トラブルや噂</div> <div class="annotation-margin"> <%= text_url_to_link(h(@annotation.trouble)).html_safe %></div>
    <%end%>  
   <%if @annotation.slang.present?%>
-    <div class="annotation-title">スラング・用語解説</div> <div class="annotation-margin"> <%= @annotation.slang %></div>
+    <div class="annotation-title">スラング・用語解説</div> <div class="annotation-margin"><%= text_url_to_link(h(@annotation.slang)).html_safe %></div>
   <%end%>
   <%if @annotation.intention.present?%>
-   <div class="annotation-title">歌詞の意味・ほのめかし</div> <div class="annotation-margin"> <%= @annotation.intention %></div>
+   <div class="annotation-title">歌詞の意味・ほのめかし</div> <div class="annotation-margin"> <%= text_url_to_link(h(@annotation.intention)).html_safe %></div>
   <%end%>
   <%if @annotation.info.present?%>   
-    <div class="annotation-title">コンサート/パフォーマンス情報</div><div class="annotation-margin"> <%= @annotation.info %></div>
+    <div class="annotation-title">コンサート/パフォーマンス情報</div><div class="annotation-margin"><%= text_url_to_link(h(@annotation.info)).html_safe %></div>
   <%end%>
   <% if @annotation.award.present?%>
-    <div class="annotation-title">受賞・チャート歴</div> <div class="annotation-margin"><%= @annotation.award%></div>
+    <div class="annotation-title">受賞・チャート歴</div> <div class="annotation-margin"><%= text_url_to_link(h(@annotation.award)).html_safe %></div>
   <%end%> 
  
 <%end%> 
