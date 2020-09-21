@@ -119,8 +119,21 @@
           <p>
             <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
             <%= comment.text %>
+            <%if current_user.already_favorited?(comment)%>
+                <%= link_to  "/songs/#{@song.id}/comments/#{comment.id}/favorites", method: :delete do%>
+                  <i class="fas fa-thumbs-up thum-icon"></i>
+                <%end%>
+            <%else%>
+              <%= link_to  "/songs/#{@song.id}/comments/#{comment.id}/favorites", method: :post do%>
+                 <i class="far fa-thumbs-up thum-icon"></i>
+               <%end%>
+            <%end%>
+            <%=comment.favorites.count%>
             <% if user_signed_in? && current_user.id == comment.user_id ||current_user.id ==1%>
-            <i class="far fa-trash-alt trash-icon"></i><%= link_to '削除',  "/songs/#{@song.id}/comments/#{comment.id}", method: :delete %>
+            <%= link_to  "/songs/#{@song.id}/comments/#{comment.id}", method: :delete do %>
+             <i class="far fa-trash-alt trash-icon"></i>削除
+            <%end%>
+         
           <% end %>
           </p>
         <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_20_101605) do
+ActiveRecord::Schema.define(version: 2020_09_21_045601) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -74,6 +74,15 @@ ActiveRecord::Schema.define(version: 2020_09_20_101605) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["song_id"], name: "index_comments_on_song_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "comment_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["comment_id"], name: "index_favorites_on_comment_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "featurings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -151,6 +160,8 @@ ActiveRecord::Schema.define(version: 2020_09_20_101605) do
   add_foreign_key "artist_profiles", "artists"
   add_foreign_key "comments", "songs"
   add_foreign_key "comments", "users"
+  add_foreign_key "favorites", "comments"
+  add_foreign_key "favorites", "users"
   add_foreign_key "producer_profiles", "producers"
   add_foreign_key "sns_credentials", "users"
   add_foreign_key "song_artist_relations", "artists"

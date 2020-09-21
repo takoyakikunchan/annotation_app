@@ -14,9 +14,11 @@ consumer.subscriptions.create("CommentChannel", {
     const html = `<p>
                     <strong><a href="/users/${data.content.user_id}">${data.nickname}</a>：</strong>
                       ${data.content.text}
-                  </p>
-                  <i class="far fa-trash-alt trash-icon"></i><a href= "/songs/${data.song.id}/comments/${data.content.id}", data-method="delete" >"削除"</a> `      
-       const messages = document.getElementById('comments');
+                 
+                  <a  href= "/songs/${data.song.id}/comments/${data.content.id}/favorites", data-method="post"><i class="far fa-thumbs-up thum-icon"></i></a>
+                  <a href= "/songs/${data.song.id}/comments/${data.content.id}", data-method="delete" ><i class="far fa-trash-alt trash-icon"></i>"削除"</a>  </p>`      
+                 
+                  const messages = document.getElementById('comments');
        const newMessage = document.getElementById('comment_text');
        messages.insertAdjacentHTML('afterbegin', html);
        newMessage.value='';

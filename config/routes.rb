@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   root "songs#index"
   resources :songs  do
     resources :annotations
-    resources :comments, only:[:create,:destroy]
+    resources :comments, only:[:create,:destroy] do
+      resource :favorites, only:[:create,:destroy] 
+  end
     collection do
       get 'search'
     end

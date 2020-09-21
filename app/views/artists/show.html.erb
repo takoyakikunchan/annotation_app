@@ -30,7 +30,7 @@
     </div>
 
  <%if @artprofile.biography.present?%>
-       <div class= "bio-text"><%= @artprofile.biography%></div>
+       <div class= "bio-text"><%= text_url_to_link(h(@artprofile.biography)).html_safe %></div>
      <%end%>  
  <%end%>
 
