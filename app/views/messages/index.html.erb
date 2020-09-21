@@ -1,0 +1,33 @@
+<%= form_for(@message, url: { action: :confirm }) do |f| %>
+  <div class="reporting-form">
+   <%= link_to image_tag("ririkusu-logo.png", class: "ririkusu-icon-new"), "/" %>
+    <h2>お問い合わせ</h2>
+
+      <% if @message.errors.present? %>
+        <div>
+          <strong>入力内容にエラーがあります</strong>
+          <ul>
+            <% @message.errors.each do |attr, error| %>
+              <li><%= error %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+    <div class="margin-10px">
+      <strong>名前</strong>
+      <div ><%= f.text_field :name, placeholder: '20文字以内',class:"report-name" %></div>
+    </div>
+    <div class="margin-10px">
+      <strong>メールアドレス</strong>
+       <div><%= f.text_field :email, placeholder: '30文字以内',class:"report-name" %></div>
+    </div>
+    <div class="margin-10px">
+      <strong>お問い合わせ内容</strong>
+      <div ><%= f.text_area :content, placeholder: '500文字以内 例）通報の場合は、通報したいページのurlの記述のご協力をお願いいたします。' ,class:"report-contents"%></div>
+    </div>
+      <%= f.submit '確認画面へ',class:"confirm_btn" %>
+    
+  </div>
+<% end %>
+ 

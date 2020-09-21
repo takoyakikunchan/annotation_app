@@ -3,6 +3,9 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations'
   }
+  get  'index' =>'messages#index' 
+  post 'confirm' => 'messages#confirm'
+  post 'done' => 'messages#done' 
   resources :featurings
   resources :producers do
     resources :producer_profiles

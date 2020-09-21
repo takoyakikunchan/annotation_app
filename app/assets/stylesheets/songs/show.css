@@ -204,7 +204,7 @@ display: flex;
 .hover :hover{
   opacity:0.9;
 }
-.lyric-edit-btn,.report-song,.report-comment{
+.lyric-edit-btn{
   text-decoration: none;
   background-color: plum;
   color: #fff;
@@ -215,6 +215,20 @@ display: flex;
   font-size: 15px;
   margin-left:3px;
 }
+.report-song{
+  text-decoration: none;
+  background-color: plum;
+  color: #fff;
+  padding:12px 20px;
+  border-radius: 10px;
+  line-height: 40px;
+  min-width: 100px;
+  font-size: 15px;
+  margin-left:10px;
+}
+.twitter-share-button{
+  margin-left:12px;
+}
 .flex{
   display:flex;
 }
@@ -224,3 +238,7 @@ display: flex;
   margin:0 3px 0 5px;
 }
 
+.thum-icon{
+  color:rgb(250, 173, 57);
+  margin:0 3px 0 25px;
+}

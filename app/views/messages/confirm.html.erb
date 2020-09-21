@@ -1,0 +1,30 @@
+<%= form_for @message, :url => done_path do |f| %>
+ <div class="reporting-form">
+ <%= link_to image_tag("ririkusu-logo.png", class: "ririkusu-icon-new"), "/" %>
+    <h2>内容確認</h2>
+    <div class="margin-10px">
+      <strong>名前</strong>
+      <p>
+        <%= f.hidden_field :name %>
+        <%= @message.name %>
+      </p>
+    </div>
+    <div class="margin-10px">
+      <strong>メールアドレス</strong>
+      <p>
+        <%= f.hidden_field :email %>
+        <%= @message.email %>
+      </p>
+    </div>
+    <div class="margin-10px">
+      <strong>お問い合わせ内容</strong>
+      <p>
+        <%= f.hidden_field :content %>
+        <%= simple_format(@message.content) %>
+      </p>
+    </div>
+      <%= f.submit '送信する',class:"confirm_btn"  %>
+      <%= f.submit '戻る', name: 'back' ,class:"report-back-btn"%>
+  </div>
+<% end %>
+    
