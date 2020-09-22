@@ -3,5 +3,5 @@ class Favorite < ApplicationRecord
   belongs_to :comment
 
   #一人のユーザーは一回のイイネまで
-  validates_uniquness_of :comment_id, scope: :user_id
+  validates_uniqueness_of :comment_id, scope: :user_id
 end
