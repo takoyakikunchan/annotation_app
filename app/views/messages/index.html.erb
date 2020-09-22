@@ -1,7 +1,7 @@
 <%= form_for(@message, url: { action: :confirm }) do |f| %>
   <div class="reporting-form">
    <%= link_to image_tag("ririkusu-logo.png", class: "ririkusu-icon-new"), "/" %>
-    <h2>お問い合わせ</h2>
+    <h2 class="border">お問い合わせ</h2>
 
       <% if @message.errors.present? %>
         <div>

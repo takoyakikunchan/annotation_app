@@ -20,11 +20,10 @@ text-align: center;
 }
 .confirm_btn{
   padding:8px 10px;
-  
 }
 
 
-h2{
+.border{
   border-top: solid 3px skyblue;
   position: relative;
   width:100%;
