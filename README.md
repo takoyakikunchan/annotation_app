@@ -29,7 +29,7 @@ ririkusu
 アプリ「ririksu」は、ユーザーが曲の歌詞に注釈や考察を投稿できるアプリケーションです。
  
 # URL	
-デプロイ済みのURLを記述しましょう。デプロイが済んでいない場合は、デプロイ次第記述しましょう。
+https://lyrics-annotation-app.herokuapp.com/
 # テスト用アカウント
 	ログイン機能等を実装した場合は、記述しましょう。またBasic認証等を設けている場合は、そのID/Passも記述しましょう。
 # Usage	
@@ -52,32 +52,7 @@ ER図
 https://app.lucidchart.com/publicSegments/view/5388e995-f649-4e36-9ba7-c80cfcf1581b
 # ローカルでの動作方法	
 git cloneしてから、ローカルで動作をさせるまでに必要なコマンドを記述しましょう。この時、アプリケーション開発に使用した環境を併記することを忘れないでください（パッケージやRubyのバージョンなど）。
-# DEMO
- 
-"hoge"の魅力が直感的に伝えわるデモ動画や図解を載せる
- 
-# Features
- 
-"hoge"のセールスポイントや差別化などを説明する
- 
-# Requirement
- 
-"hoge"を動かすのに必要なライブラリなどを列挙する
- 
-* huga 3.5.2
-* hogehuga 1.0.2
- 
-# Installation
- 
-Requirementで列挙したライブラリなどのインストール方法を説明する
- 
-```bash
-pip install huga_package
-```
- 
-# Usage
- 
-DEMOの実行方法など、"hoge"の基本的な使い方を説明する
+
  
 ```bash
 git clone https://github.com/hoge/~
