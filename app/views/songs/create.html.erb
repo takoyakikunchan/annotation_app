@@ -5,7 +5,10 @@
  <div class="share-propose"><p>投稿できました!</p>
  <p>投稿をシェアしますか？</p></div>
 <div class="twitter-share-button-create"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+<div class="backbtnn"><%=link_to '投稿内容を確認する',song_path(@song.id) ,class:"back--btn-create"%></div>
 <div class="backbtn"><%=link_to 'もどる', root_path, class:"back-btn-create" %></div>
+
+
   </div>
 <%= render "shared/second-footer"%>
 

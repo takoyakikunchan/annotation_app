@@ -10,8 +10,9 @@ class SongsArtist
     featuring.save
     producer = Producer.where(producer_name: producer_name).first_or_initialize
     producer.save
-    song = Song.create(name: name, text: text, image: image, genre_id: genre_id, translate: translate, youtube_url: youtube_url, sales_date: sales_date,user_id: user_id,producer_id: producer.id,featuring_id: featuring.id)
-    SongArtistRelation.create(song_id: song.id, artist_id: artist.id)
+    @song = Song.create(name: name, text: text, image: image, genre_id: genre_id, translate: translate, youtube_url: youtube_url, sales_date: sales_date,user_id: user_id,producer_id: producer.id,featuring_id: featuring.id)
+    SongArtistRelation.create(song_id: @song.id, artist_id: artist.id)
+    return @song
   end
   def update
     featuring = Featuring.where(featuring_name: featuring_name).first_or_create

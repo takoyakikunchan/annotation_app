@@ -17,8 +17,21 @@
   padding: 15px 35%;
   text-decoration: none;
 }
+
+.back--btn-create{
+  background: rgba(233, 158, 240, 0.9);
+  border: 1px solid plum;
+  color: #fff;
+  padding: 15px 35%;
+  text-decoration: none;
+}
 .backbtn{
   width:300px;
+  margin:auto;
+ 
+}
+.backbtnn{
+  width:500px;
   margin:auto;
   margin-bottom:150px;
 }
