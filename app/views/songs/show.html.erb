@@ -117,7 +117,7 @@
       <div id='comments'>
         <% @comments.reverse_each do |comment| %>
           <p>
-            <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+            <strong><%= link_to comment.user.nickname, "#" %>：</strong>
             <%= comment.text %>
             <%if current_user.already_favorited?(comment)%>
                 <%= link_to  "/songs/#{@song.id}/comments/#{comment.id}/favorites", method: :delete do%>
@@ -142,7 +142,7 @@
   </div>
 </div>
 
-<div><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+<div class="share-text">記事をシェアする</div><div class="twitter-share"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
   
   <div class="hover"> <%= link_to '通報する', index_path, method: :get, class:'report-song' %></div>
   

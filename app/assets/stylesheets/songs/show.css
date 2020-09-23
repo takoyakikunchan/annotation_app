@@ -242,3 +242,11 @@ display: flex;
   color:rgb(250, 173, 57);
   margin:0 3px 0 25px;
 }
+.twitter-share{
+  padding:10px;
+}
+.share-text{
+  color:rgba(142, 33, 244, 0.558);
+  font-size:11px;
+  margin-left:15px;
+}
