@@ -1,6 +1,4 @@
 class Song < ApplicationRecord
-  validates :name, :text, :image, :genre_id, presence: true
-  validates :genre_id, numericality: { other_than: 1 }
   belongs_to :user
   belongs_to :producer, optional: true
   belongs_to :featuring, optional: true
@@ -8,6 +6,7 @@ class Song < ApplicationRecord
   has_many :artists, through: :song_artist_relations, dependent: :destroy
   has_one_attached :image
   has_one :annotation
+  validates :genre_id, numericality: { other_than: 1 , message: 'を選択してください' }
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :genre
   has_many :comments

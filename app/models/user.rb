@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :songs
   has_many :comments
   has_many :favorites, dependent: :destroy
-  validates :nickname, { presence: true, length: { maximum: 20 } }
+
   validates :password, { presence: true, confirmation: true, length: { minimum: 6 } }
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX

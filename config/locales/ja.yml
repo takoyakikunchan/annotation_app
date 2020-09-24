@@ -3,3 +3,14 @@ ja:
    attributes:
      user:
        nickname: ニックネーム
+ activemodel:
+   attributes:
+     songs_artist:
+       name: 曲名
+       image: 写真
+       text: 歌詞
+       genre_id: ジャンル
+       art_name: 歌手名
+       sales_date: リリース日
+       producer_name: プロデューサー名
+       featuring_name: コラボアーティスト名

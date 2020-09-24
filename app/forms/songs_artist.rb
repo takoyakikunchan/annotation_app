@@ -1,8 +1,10 @@
 class SongsArtist
   include ActiveModel::Model
   attr_accessor :name, :text, :image, :genre_id, :translate, :youtube_url, :sales_date, :art_name, :producer_name, :featuring_name, :user_id, :song_id
-  validates :name, :text, :image, :genre_id, presence: true
-  validates :genre_id, numericality: { other_than: 1 }
+  validates :name, :text, :genre_id, :art_name, :sales_date, presence: true
+  validates :image, presence: {message: 'を登録してください'}
+  validates :genre_id, numericality: { other_than: 1 , message: 'を選択してください' }
+  validates :name, :art_name,:producer_name,:featuring_name, length: { maximum: 40 }
   def save
     artist = Artist.where(art_name: art_name).first_or_initialize
     artist.save

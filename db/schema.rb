@@ -128,13 +128,13 @@ ActiveRecord::Schema.define(version: 2020_09_21_045601) do
   create_table "songs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "text", null: false
-    t.string "youtube_url", null: false
+    t.string "youtube_url"
     t.text "translate"
     t.integer "genre_id", null: false
     t.date "sales_date", null: false
     t.bigint "user_id", null: false
-    t.bigint "producer_id", null: false
-    t.bigint "featuring_id", null: false
+    t.bigint "producer_id"
+    t.bigint "featuring_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["featuring_id"], name: "index_songs_on_featuring_id"
