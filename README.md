@@ -58,8 +58,6 @@ ER図
 https://app.lucidchart.com/publicSegments/view/5388e995-f649-4e36-9ba7-c80cfcf1581b
 # ローカルでの動作方法	
 git cloneしてから、ローカルで動作をさせるまでに必要なコマンドを記述しましょう。この時、アプリケーション開発に使用した環境を併記することを忘れないでください（パッケージやRubyのバージョンなど）。
-
- 
 ```bash
 git clone https://github.com/hoge/~
 cd examples
