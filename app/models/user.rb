@@ -6,19 +6,16 @@ class User < ApplicationRecord
 
   has_many :sns_credentials
   has_many :songs
-  has_many :comments 
+  has_many :comments
   has_many :favorites, dependent: :destroy
   validates :nickname, { presence: true, length: { maximum: 20 } }
   validates :password, { presence: true, confirmation: true, length: { minimum: 6 } }
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX
 
-
-
   def already_favorited?(comment)
     self.favorites.exists?(comment_id: comment.id)
   end
-
 
   def self.from_omniauth(auth)
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create

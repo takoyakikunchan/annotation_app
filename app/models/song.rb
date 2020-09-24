@@ -10,26 +10,26 @@ class Song < ApplicationRecord
   has_one :annotation
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :genre
-  has_many :comments 
+  has_many :comments
   def self.search(search)
-    if search != ""
+    if search != ''
       @song = Song.where('name LIKE(?)', "%#{search}%")
       @text = Song.where('text LIKE(?)', "%#{search}%")
       @translate = Song.where('translate LIKE(?)', "%#{search}%")
       @artist = Artist.where('art_name LIKE(?)', "%#{search}%")
       @producer = Producer.where('producer_name LIKE(?)', "%#{search}%")
       @featuring = Featuring.where('featuring_name LIKE(?)', "%#{search}%")
-      
+
       @songs = []
-       @song.each do |song| 
-         @songs << song
-       end
-       @text.each do |text|
+      @song.each do |song|
+        @songs << song
+      end
+      @text.each do |text|
         @songs << text
-       end
-       @translate.each do |translate|
+      end
+      @translate.each do |translate|
         @songs << translate
-       end
+      end
       @artist.each do |artist|
         artist.songs.each do |a|
           @songs << a
@@ -48,9 +48,8 @@ class Song < ApplicationRecord
       @songs = @songs.uniq
       return @songs
 
-    else  
+    else
       return nil
     end
   end
-
 end

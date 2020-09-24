@@ -7,5 +7,4 @@ class MessageMailer < ApplicationMailer
       format.text
     end
   end
-
 end
