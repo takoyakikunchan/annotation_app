@@ -14,24 +14,24 @@
          曲名
          <span class="indispensable">(必須)</span>
        </div>
-        <%= f.text_area :name, class:"songs-text", id:"item-name", placeholder:"曲名 例）リリスクちゃん", maxlength:"40" %>
+        <%= f.text_area :name, class:"songs-text", placeholder:"曲名 例）リリスクちゃん", maxlength:"40" %>
        <div class="weight-bold-text">
          歌手名
          <span class="indispensable">(必須)</span>
        </div>
-        <%= f.text_area :art_name, class:"songs-text", id:"item-name", placeholder:"歌手名 例）perfurmer", maxlength:"40" %>
+        <%= f.text_area :art_name, class:"songs-text",  placeholder:"歌手名 例）perfurmer", maxlength:"40" %>
        <div class="weight-bold-text">
          プロデューサー
        </div>
-       <%= f.text_area :producer_name, class:"songs-text", id:"item-name", placeholder:"例）中田ヤシタカ", maxlength:"40" %>
+       <%= f.text_area :producer_name, class:"songs-text",  placeholder:"例）中田ヤシタカ", maxlength:"40" %>
        <div class="weight-bold-text">
          コラボアーティスト
        </div>
-        <%= f.text_area :featuring_name, class:"songs-text", id:"item-name", placeholder:"例） 菅田正樹", maxlength:"40" %>
-      <div class="weight-bold-text"> 
+        <%= f.text_area :featuring_name, class:"songs-text", placeholder:"例） 菅田正樹", maxlength:"40" %>
+      <% <div class="weight-bold-text"> 
         リリース日
        <span class="indispensable">(必須)</span>
-      </div>
+      </div> %>
     <div class='input-sales-wrap'>
       <%= raw sprintf(
                   f.date_select(
@@ -41,7 +41,9 @@
                     prompt:'--',
                     start_year: (Time.now.year),
                     end_year: 1930,
+                    id: 'task_target_date',
                     date_separator: '%s'),
+                    
                   "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
     </div>
        <div class="songs-explain">
@@ -49,13 +51,13 @@
            歌詞
            <span class="indispensable">(必須)</span>
          </div>
-         <%= f.text_area :text, class:"songs-text", id:"item-info" ,rows:"7" ,maxlength:"5000" %>
+         <%= f.text_area :text, class:"songs-text", rows:"7" ,maxlength:"5000" %>
        </div>
        <div class="songs-explain">
          <div class="weight-bold-text">
            和訳
          </div>
-         <%= f.text_area :translate, class:"songs-text", id:"item-info" ,rows:"7" ,maxlength:"5000" %>
+         <%= f.text_area :translate, class:"songs-text",rows:"7" ,maxlength:"5000" %>
         </div>
       </div>
       <%# /商品名と商品説明 %>
@@ -79,7 +81,7 @@
       <div class="weight-bold-text">
         youtubeのurl
       </div>
-      <%= f.text_area :youtube_url, class:"songs-text", id:"item-name", placeholder:"例）https://www.youtube.com/watch?v=DOEk-0MeQbI", maxlength:"100" %>
+      <%= f.text_area :youtube_url, class:"songs-text", placeholder:"例）https://www.youtube.com/watch?v=DOEk-0MeQbI", maxlength:"100" %>
     
      <%# ジャンル %>
      <div class="songs-detail">

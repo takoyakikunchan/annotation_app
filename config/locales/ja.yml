@@ -3,6 +3,8 @@ ja:
    attributes:
      user:
        nickname: ニックネーム
+     annotation:
+       intention: 歌詞の意味、ほのめかし
  activemodel:
    attributes:
      songs_artist:
