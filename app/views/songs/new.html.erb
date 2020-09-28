@@ -28,10 +28,10 @@
          コラボアーティスト
        </div>
         <%= f.text_area :featuring_name, class:"songs-text", placeholder:"例） 菅田正樹", maxlength:"40" %>
-      <% <div class="weight-bold-text"> 
+       <div class="weight-bold-text"> 
         リリース日
        <span class="indispensable">(必須)</span>
-      </div> %>
+      </div> 
     <div class='input-sales-wrap'>
       <%= raw sprintf(
                   f.date_select(
@@ -41,7 +41,6 @@
                     prompt:'--',
                     start_year: (Time.now.year),
                     end_year: 1930,
-                    id: 'task_target_date',
                     date_separator: '%s'),
                     
                   "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
