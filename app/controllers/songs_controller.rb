@@ -10,12 +10,13 @@ class SongsController < ApplicationController
   end
 
   def create
-    date = params.require(:songs_artist).permit(:sales_date)
-    sales_date = Date.parse(date['sales_date(1i)'] + '-' + date['sales_date(2i)'] + '-' + date['sales_date(3i)'])
-    @songg = SongsArtist.new(song_params.merge(sales_date: sales_date))
-    url = params[:songs_artist][:youtube_url]
-    url = url.last(11)
-    @songg.youtube_url = url
+    
+     date = params.require(:songs_artist).permit(:sales_date)
+     sales_date = Date.parse(date['sales_date(1i)'] + '-' + date['sales_date(2i)'] + '-' + date['sales_date(3i)'])
+     @songg = SongsArtist.new(song_params.merge(sales_date: sales_date))
+     url = params[:songs_artist][:youtube_url]
+     url = url.last(11)
+     @songg.youtube_url = url
 
     if @songg.valid?
       @song = @songg.save
