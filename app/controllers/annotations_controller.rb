@@ -1,4 +1,5 @@
 class AnnotationsController < ApplicationController
+  before_action :move_to_login, only: [:new]
   def new
     @annotation = Annotation.new
     @song = Song.find(params[:song_id])
@@ -33,6 +34,10 @@ class AnnotationsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def move_to_login
+    redirect_to new_user_session_path unless user_signed_in?
   end
 
   private
