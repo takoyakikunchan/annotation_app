@@ -50,6 +50,7 @@
 .plum{
 color:plum;
 font-size:20px;
+margin-top:5px;
 }
 
 .annotation-title{
@@ -214,6 +215,10 @@ display: flex;
   min-width: 100px;
   font-size: 15px;
   margin-left:3px;
+  &:active{
+    position: relative;
+    top: 5px;
+  }
 }
 .report-song{
   text-decoration: none;
