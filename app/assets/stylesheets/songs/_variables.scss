@@ -1,0 +1,6 @@
+$shadow:0 0 6px rgba(0, 0, 0, 0.9);
+$plum:plum;
+@mixin opaweight($opa){
+  opacity:$opa;
+  font-weight:bolder;
+}
