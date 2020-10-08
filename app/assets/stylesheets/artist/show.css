@@ -22,11 +22,17 @@
   background-color: plum;
   color: #fff;
   padding:12px;
+  border:1px solid plum;
   border-radius: 10px;
   line-height: 40px;
   min-width: 100px;
   font-size: 15px;
   margin-left:3px;
+  transition:all 0.5s;
+}
+.addartist_profile:hover{
+  color:gray;
+  background-color:rgb(228, 209, 228);
 }
 
 /*曲一覧*/
